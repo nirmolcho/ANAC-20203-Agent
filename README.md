@@ -7,7 +7,7 @@ The agent is designed to participate in multi-issue negotiations built in Python
 ## 3. Bidding Strategy
 The agent's bidding strategy is to generate bids that maximize its own utility while also considering the predicted utility for the opponent. The utility of an offer for the opponent is predicted using the `get_predicted_utility` method of the `OpponentModel,` which computes a weighted sum of the predicted utilities of the bid's values. Formally, the expected utility  of a bid b is given by:  
 
-   [ U(b) = Σ (w_i * u_i)]
+   U(b) = Σ (w_i * u_i)
    
 Where  is the predicted weight of the issue , and  is the predicted utility of the value of the case  in the bid.
 
