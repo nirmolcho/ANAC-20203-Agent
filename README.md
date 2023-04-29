@@ -5,11 +5,10 @@ The Automated Negotiating Agent Competition (ANAC) [1] is an international tourn
 The agent is designed to participate in multi-issue negotiations built in Python using the GeniusWeb environment, where each issue has discrete possible values. The critical components of the agent's design are the `OpponentModel` and `IssueEstimator` classes. These components enable the agent to estimate the opponent's preferences and use these estimates to generate bids that are likely to be acceptable to the opponent while maximizing their utility.
 
 ## 3. Bidding Strategy
-The agent's bidding strategy is to generate bids that maximize its own utility while also considering the predicted utility for the opponent. The utility of an offer for the opponent is predicted using the `get_predicted_utility` method of the `OpponentModel,` which computes a weighted sum of the predicted utilities of the bid's values. Formally, the expected utility  of a bid b is given by:
-
-
-
+The agent's bidding strategy is to generate bids that maximize its own utility while also considering the predicted utility for the opponent. The utility of an offer for the opponent is predicted using the `get_predicted_utility` method of the `OpponentModel,` which computes a weighted sum of the predicted utilities of the bid's values. Formally, the expected utility  of a bid b is given by:  
+   U(b) = Σ (w_i * u_i)
 Where  is the predicted weight of the issue , and  is the predicted utility of the value of the case  in the bid.
+
 
 ## 4. Acceptance Strategy
 The acceptance strategy uses a threshold  that decreases linearly over time, ensuring the agent accepts bids with higher utilities for both parties. The agent agrees with an offer if the predicted utility for the opponent () and its utility () are greater than or equal to the current threshold . This approach promotes efficient and mutually beneficial agreements while preventing deadlock and ensuring arrangements can be reached within the given time limit. Using this Acceptance Strategy, we can ensure we will get high Welfare Utility.
